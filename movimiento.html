@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Primer Movimiento de Un Objeto</title>
+
+        <style> 
+                .cuadrado{
+                    height: 100px;
+                    width: 100px;
+                    background: red;  
+                }
+        </style>
+
+</head>
+<body>
+
+   <div class="cuadrado" id="cuadrado"></div>
+
+    <script>
+    
+            let cuadrado = document.getElementById("cuadrado");
+            let velocidad = 20;
+            let mTop = 0;
+            let mLeft = 0;
+
+            //capturamos el evento del teclado cuando presione el teclado y le pasamos la funcion (e) del evento
+            document.addEventListener("keydown", function(e){
+               
+                // si es igual al codigo del teclado 39 voy a llamar a la funcion mover derecha
+                if(e.keyCode == "39"){
+                    moverDerecha();
+                }
+
+                if(e.keyCode =="37"){
+                    moverIzquierda();
+                }
+
+                if(e.keyCode == "38"){
+                    moverArriba();
+                }
+
+                if(e.keyCode == "40"){
+                    moverAbajo();
+                }
+            })
+
+            //funciones que van a mover el elemento html
+            function moverDerecha(){
+                mLeft += velocidad;
+                cuadrado.style.marginLeft = mLeft + "px";
+            }
+
+            function moverIzquierda(){
+                mLeft -= velocidad;
+                cuadrado.style.marginLeft = mLeft + "px";
+            }
+
+            function moverArriba(){
+                mTop -= velocidad;
+                cuadrado.style.marginTop = mTop + "px";
+            }
+
+            function moverAbajo(){
+                mTop += velocidad;
+                cuadrado.style.marginTop = mTop + "px"; 
+            }
+
+    </script>
+    
+</body>
+</html>
